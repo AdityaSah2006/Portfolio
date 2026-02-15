@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const sectionsRef = useRef([]);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -258,7 +258,7 @@ export default function Home() {
       {/* About Section - Redesigned */}
       <section 
         id="about" 
-        ref={(el) => (sectionsRef.current[0] = el)}
+        ref={(el) => {sectionsRef.current[0] = el}}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -409,7 +409,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Projects Section - MacBook Mockup Style */}
       <section 
         id="projects" 
-        ref={(el) => (sectionsRef.current[1] = el)}
+        ref={(el) => {sectionsRef.current[1] = el}}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -488,7 +488,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Skills Section - Enhanced */}
       <section 
         id="skills" 
-        ref={(el) => (sectionsRef.current[2] = el)}
+        ref={(el) => {sectionsRef.current[2] = el}}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -565,7 +565,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Contact Section */}
       <section 
         id="contact" 
-        ref={(el) => (sectionsRef.current[3] = el)}
+        ref={(el) => {sectionsRef.current[3] = el}}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-6xl w-full">
