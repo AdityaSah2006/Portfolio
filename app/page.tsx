@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
@@ -12,7 +11,7 @@ export default function Home() {
       setScrollY(window.scrollY);
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: any) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
@@ -43,10 +42,49 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#e1dcdc] via-[#fcf2f2] to-[#550f1f] overflow-x-hidden">
+    <main className="min-h-screen bg-gradient-to-br from-[#fdf9ec] via-[#ffffff] to-[#a99797] overflow-x-hidden relative">
+  
+  {/* Simple Animated Wave Test */}
+  {/* Dark Animated Wave */}
+<div className="fixed inset-0 pointer-events-none z-0">
+  <div 
+    className="absolute bottom-0 left-0 w-full h-64 opacity-30"
+    style={{
+      transform: `translateY(${scrollY * -0.3}px)`,
+      background: 'linear-gradient(to top, rgba(139,92,246,0.4), rgba(236,72,153,0.3), transparent)',
+    }}
+  ></div>
+  
+  <div 
+    className="absolute top-0 left-0 w-full h-64 opacity-25"
+    style={{
+      transform: `translateY(${scrollY * 0.2}px)`,
+      background: 'linear-gradient(to bottom, rgba(249,115,22,0.3), rgba(239,68,68,0.2), transparent)',
+    }}
+  ></div>
+  
+  <div 
+    className="absolute top-1/3 left-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+    style={{
+      background: 'radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%)',
+      transform: `translate(${scrollY * 0.2}px, ${scrollY * 0.3}px)`,
+    }}
+  ></div>
+  
+  <div 
+    className="absolute bottom-1/3 right-0 w-96 h-96 rounded-full blur-3xl opacity-20"
+    style={{
+      background: 'radial-gradient(circle, rgba(236,72,153,0.6) 0%, transparent 70%)',
+      transform: `translate(${-scrollY * 0.15}px, ${-scrollY * 0.25}px)`,
+    }}
+  ></div>
+</div>
+  
+  {/* Your content wrapper */}
+  <div className="relative z-10"> 
       
       {/* Enhanced Navigation */}
-      <nav className="fixed top-0 w-full bg-gradient-to-r from-rose-400 to-amber-400/70 backdrop-blur-2xl shadow-sm z-50 border-b border-black-400">
+      <nav className="fixed top-0 w-full bg-gradient-to-r from-rose-400 to-amber-200/70 backdrop-blur-2xl shadow-sm z-50 border-b border-black-400">
         <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
           <h2 className="text-3xl font-bold">
             <span className="bg-gradient-to-r from-orange-900 via-red-900 to-purple-900 bg-clip-text text-transparent">
@@ -131,8 +169,8 @@ export default function Home() {
             
             <div className="flex gap-5">
               <a 
-  href="/cv.pdf" 
-  download="cv.pdf"
+  href="https://drive.google.com/file/d/1t1qgjfFaHEJ6ld-jx5x5B3ASmi0osavM/view?usp=share_link" 
+  download="https://drive.google.com/file/d/1t1qgjfFaHEJ6ld-jx5x5B3ASmi0osavM/view?usp=share_link"
   target="_blank"
   rel="noopener noreferrer"
   className="group px-10 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 text-base font-medium"
@@ -220,7 +258,7 @@ export default function Home() {
       {/* About Section - Redesigned */}
       <section 
         id="about" 
-        ref={(el) => (sectionsRef.current[0] = el)}
+        ref={sectionsRef.current[0]}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -282,7 +320,7 @@ export default function Home() {
   className="block bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 ml-8 cursor-pointer group"
 >
   <div className="flex items-start gap-4">
-    <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+    <div className="w-12 h-12 bg-gradient-to-br from-rose-400 to-amber-400 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
       <span className="text-2xl">🏆</span>
     </div>
     <div>
@@ -371,7 +409,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Projects Section - MacBook Mockup Style */}
       <section 
         id="projects" 
-        ref={(el) => (sectionsRef.current[1] = el)}
+        ref={sectionsRef.current[1]}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -450,7 +488,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Skills Section - Enhanced */}
       <section 
         id="skills" 
-        ref={(el) => (sectionsRef.current[2] = el)}
+        ref={sectionsRef.current[2]}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -527,7 +565,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Contact Section */}
       <section 
         id="contact" 
-        ref={(el) => (sectionsRef.current[3] = el)}
+        ref={sectionsRef.current[3]}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-6xl w-full">
@@ -645,7 +683,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
           <p className="text-gray-500 text-sm">© 2026 Aditya Sah. Crafted with passion and Next.js</p>
         </div>
       </footer>
-
-    </main>
+    </div>
+  </main>
   );
 }
