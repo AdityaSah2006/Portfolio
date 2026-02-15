@@ -258,7 +258,7 @@ export default function Home() {
       {/* About Section - Redesigned */}
       <section 
         id="about" 
-        ref={sectionsRef.current[0]}
+        ref={(el) => (sectionsRef.current[0] = el)}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -409,7 +409,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Projects Section - MacBook Mockup Style */}
       <section 
         id="projects" 
-        ref={sectionsRef.current[1]}
+        ref={(el) => (sectionsRef.current[1] = el)}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -488,7 +488,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Skills Section - Enhanced */}
       <section 
         id="skills" 
-        ref={sectionsRef.current[2]}
+        ref={(el) => (sectionsRef.current[2] = el)}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-7xl w-full">
@@ -565,7 +565,7 @@ https://skills.yourlearning.ibm.com/profile/your-profile
       {/* Contact Section */}
       <section 
         id="contact" 
-        ref={sectionsRef.current[3]}
+        ref={(el) => (sectionsRef.current[3] = el)}
         className="min-h-screen flex items-center justify-center px-6 py-32 opacity-0 translate-y-20 scale-95 transition-all duration-1000"
       >
         <div className="max-w-6xl w-full">
